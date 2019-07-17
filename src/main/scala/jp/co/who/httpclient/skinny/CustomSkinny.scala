@@ -43,8 +43,7 @@ object CustomSkinny {
     perf(url1)
   }
 
-  private def post(): Unit = {
-    val url = "http://192.168.1.148:8080/api/param"
+  private def post(url: String): Unit = {
     var map = Map(
       "param1" -> "fuga",
       "param2" -> "fuga1"
@@ -61,14 +60,6 @@ object CustomSkinny {
       "param2" -> "fuga1"
     )
     val b = map.map(item => s"${item._1}=${item._2}").mkString("&")
-    /*
-    for (x <- 0 until 100)
-    {
-      val response = HTTP.post(request.body(b.getBytes()))
-      println(response.status, response.textBody)
-      Thread.sleep(500)
-    }
-    */
     (0 to 100).foreach{ i =>
       val response = HTTP.post(request.body(b.getBytes()))
       Thread.sleep(500)
