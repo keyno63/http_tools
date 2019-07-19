@@ -20,7 +20,7 @@ object CustomScalaj {
       "param2" -> "fuga1"
     )
 
-    val response = post(url, query)
+    val response = request(url, query, if (args.isEmpty) "" else args.head)
     println(response.code, response.body)
   }
 
