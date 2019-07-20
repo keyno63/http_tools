@@ -11,5 +11,8 @@ libraryDependencies ++= Seq(
   "org.slf4j" % "slf4j-log4j12" % "1.7.26" % Test,
 
   //scalaj
-  "org.scalaj" %% "scalaj-http" % "2.4.2"
+  "org.scalaj" %% "scalaj-http" % "2.4.2",
+
+  //sttp
+  "com.softwaremill.sttp" %% "core" % "1.6.3",
 )
