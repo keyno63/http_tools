@@ -4,7 +4,7 @@ import java.io.FileInputStream
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.model.HttpMethods.GET
+import akka.http.scaladsl.model.HttpMethods.{GET, POST}
 import akka.http.scaladsl.model.{HttpEntity, HttpRequest, HttpResponse, Uri}
 import akka.http.scaladsl.unmarshalling.Unmarshal
 import akka.stream.ActorMaterializer
@@ -32,7 +32,8 @@ object CustomAkka {
     )
 
 
-    val response = get(url, query)
+    val requestType = if (args.isEmpty) "" else args.head
+    val response = request(url, query, requestType)
     println(response.status.intValue(),
       Await.result(Unmarshal(response.entity).to[String], timeout.duration))
   }
