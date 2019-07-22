@@ -40,16 +40,41 @@ object CustomSkinny {
     val p = new java.util.Properties()
     p.load(new java.io.FileInputStream("src/resources/http/conf.properties"))
     val url1 = p.getProperty("url")
-    perf(url1)
+    val rType = if (args.isEmpty) "" else args.head
+    request(url1, rType)
   }
 
-  private def post(url: String): Unit = {
-    var map = Map(
+  private def request(url: String, rType: String = ""): Unit = {
+    var query = Map(
       "param1" -> "fuga",
       "param2" -> "fuga1"
     )
+
+    rType match {
+      case "post" => post(url, query)
+      case _ => get(url, query)
+    }
+  }
+
+  private def get(
+                   url: String,
+                   query: Map[String, String] = Map.empty[String, String]
+                 ): Unit = {
+
     val cs = new CustomSkinny
-    println(cs.post(url, map))
+    val res = cs.get(url, query)
+    println("status=[%s], body=[%s], headers=[%s]."
+      .format(res.status, res.textBody, extraHeaders(res.headers)))
+  }
+
+  private def post(
+                    url: String,
+                    query: Map[String, String] = Map.empty[String, String]
+                  ): Unit = {
+    val cs = new CustomSkinny
+    val res = cs.post(url, query)
+    println("status=[%s], body=[%s], headers=[%s]."
+      .format(res.status, res.textBody, extraHeaders(res.headers)))
 
   }
 
@@ -66,6 +91,13 @@ object CustomSkinny {
       println(i, response.status, response.textBody)
     }
 
+  }
+
+  private def extraHeaders(headers: Map[String, String]): String = {
+    headers.map { kv =>
+      val (k, v) = kv
+      s"${k}: ${v}"
+    }.mkString(", ")
   }
 
 }
