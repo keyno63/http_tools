@@ -31,7 +31,7 @@ object SampleParser {
     val json = list.asJson
     println(json)
     val json1 = List("an", "do", "tr").asJson
-    val a = json1.as[List[Int]]
+    val a = json1.as[List[String]]
     println(a)
 
     val sample = Sample(Id(1), Name("sample_name"))
