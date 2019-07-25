@@ -23,6 +23,9 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor" % "2.5.23",
   "com.typesafe.akka" %% "akka-stream" % "2.5.23",
   "com.typesafe.akka" %% "akka-stream-testkit" % "2.5.23" % Test,
+
+  // jackson
+  "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.9.9",
   
 )
 
