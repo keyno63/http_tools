@@ -5,10 +5,18 @@ import scalikejdbc._
 object HelloScalikeJDBC {
 
   def main(args: Array[String]): Unit = {
+
+    val p = new java.util.Properties()
+    p.load(new java.io.FileInputStream("src/resources/sql/conf.properties"))
+    val db = p.getProperty("db")
+    val host = p.getProperty("host")
+    val port = p.getProperty("port")
+    val dbname = p.getProperty("dbname")
+    val user = p.getProperty("user")
+    val password = p.getProperty("pass")
+
     // データベースに接続
-    val url = "jdbc:postgresql://akane:5432/postgres"
-    val user = "postgres"
-    val password = ""
+    val url = s"jdbc:${db}://${host}:${port}/${dbname}"
     ConnectionPool.singleton(url, user, password)
 
     // クエリの実行と結果表示
