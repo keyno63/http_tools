@@ -3,6 +3,7 @@ name := "http_tools"
 version := "0.1"
 
 scalaVersion := "2.12.7"
+val circeVersion = "0.9.3"
 
 libraryDependencies ++= Seq(
   // skinny
@@ -28,4 +29,11 @@ libraryDependencies ++= Seq(
 
   // https://mvnrepository.com/artifact/org.postgresql/postgresql
   "org.postgresql" % "postgresql" % "42.2.6",
+  
 )
+
+libraryDependencies ++= Seq(
+  "io.circe" %% "circe-core",
+  "io.circe" %% "circe-generic",
+  "io.circe" %% "circe-parser"
+).map(_ % circeVersion)
