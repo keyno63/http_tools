@@ -19,11 +19,27 @@ object HelloScalikeJDBC {
     val url = s"jdbc:${db}://${host}:${port}/${dbname}"
     ConnectionPool.singleton(url, user, password)
 
+    insertInitData()
     // クエリの実行と結果表示
     val names = DB readOnly {implicit session =>
       sql"select name from company".map(_.string("name")).list.apply()
     }
     names.foreach(println)
+  }
+
+  def insertInitData(): Unit = {
+    var id = DB readOnly {implicit session =>
+      sql"select max(id) as max from company"
+        .map(_.int("max"))
+        .single()
+        .apply()
+    }
+    println(id)
+    implicit val session = AutoSession
+    Seq("Alice", "Bob", "Chris") foreach { name =>
+      id = id.map(_ + 1)
+      sql"insert into company (id, name, age) values (${id.get}, ${name}, ${id.get})".update.apply()
+    }
   }
 
 }
