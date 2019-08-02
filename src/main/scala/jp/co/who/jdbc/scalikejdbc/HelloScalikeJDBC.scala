@@ -34,7 +34,6 @@ object HelloScalikeJDBC {
         .single()
         .apply()
     }
-    println(id)
     implicit val session = AutoSession
     Seq("Alice", "Bob", "Chris") foreach { name =>
       id = id.map(_ + 1)
