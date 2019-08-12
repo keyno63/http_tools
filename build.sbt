@@ -27,6 +27,12 @@ libraryDependencies ++= Seq(
   // jackson
   "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.9.9",
   
+  // https://mvnrepository.com/artifact/org.scalikejdbc/scalikejdbc
+  "org.scalikejdbc" %% "scalikejdbc" % "3.3.5",
+
+  // https://mvnrepository.com/artifact/org.postgresql/postgresql
+  "org.postgresql" % "postgresql" % "42.2.6",
+  
 )
 
 libraryDependencies ++= Seq(
