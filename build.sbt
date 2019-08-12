@@ -23,9 +23,15 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor" % "2.5.23",
   "com.typesafe.akka" %% "akka-stream" % "2.5.23",
   "com.typesafe.akka" %% "akka-stream-testkit" % "2.5.23" % Test,
-
+  
   // jackson
   "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.9.9",
+  
+  // https://mvnrepository.com/artifact/org.scalikejdbc/scalikejdbc
+  "org.scalikejdbc" %% "scalikejdbc" % "3.3.5",
+
+  // https://mvnrepository.com/artifact/org.postgresql/postgresql
+  "org.postgresql" % "postgresql" % "42.2.6",
   
 )
 
