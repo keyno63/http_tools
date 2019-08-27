@@ -1,4 +1,4 @@
-package jp.co.who.json.circe
+package main.scala.jp.co.who.json.circe
 
 import io.circe.Json
 import io.circe.generic.auto._
