@@ -1,4 +1,4 @@
-package jp.co.who.jdbc.scalikejdbc
+package jp.co.who.scalikejdbc
 
 import scalikejdbc._
 
@@ -7,7 +7,7 @@ object HelloScalikeJDBC {
   def main(args: Array[String]): Unit = {
 
     val p = new java.util.Properties()
-    p.load(new java.io.FileInputStream("src/resources/sql/conf.properties"))
+    p.load(new java.io.FileInputStream("src/main/resources/sql/conf.properties"))
     val db = p.getProperty("db")
     val host = p.getProperty("host")
     val port = p.getProperty("port")

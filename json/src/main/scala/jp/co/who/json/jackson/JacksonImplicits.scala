@@ -1,6 +1,4 @@
-package jp.co.who.json.jackson
-
-import com.fasterxml.jackson.databind.ObjectMapper
+package main.scala.jp.co.who.json.jackson
 
 object JacksonImplicits {
     implicit class JsonString(json: String) {

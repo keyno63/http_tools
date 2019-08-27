@@ -1,4 +1,4 @@
-package jp.co.who.json.jackson
+package main.scala.jp.co.who.json.jackson
 
 object SampleParser {
 
