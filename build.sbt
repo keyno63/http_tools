@@ -1,6 +1,6 @@
 import sbt.Keys.version
 
-name := "http_tools"
+name := "scala_libs"
 
 val circeVersion = "0.9.3"
 
@@ -42,6 +42,7 @@ lazy val json = (project in file("json"))
   .settings(commonSettings)
   .settings(
     name := "json",
+    libraryDependencies +=  "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.9.9",
     libraryDependencies ++= Seq(
       "io.circe" %% "circe-core",
       "io.circe" %% "circe-generic",

@@ -1,4 +1,6 @@
-package main.scala.jp.co.who.json.jackson
+package jp.co.who.json.jackson
+
+import jp.co.who.json.jackson.JacksonImplicits._
 
 object SampleParser {
 
@@ -19,5 +21,4 @@ object SampleParser {
   }
 
   case class Person(name: String, children: Set[Person] = Set())
-
 }
