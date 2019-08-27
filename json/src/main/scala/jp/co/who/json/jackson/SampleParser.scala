@@ -1,8 +1,15 @@
 package jp.co.who.json.jackson
 
-import jp.co.who.json.jackson.JacksonImplicits._
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.scala.DefaultScalaModule
 
 object SampleParser {
+
+  import JacksonImplicits._
+
+  // ObjectMapper の設定
+  implicit val objectMapper: ObjectMapper = new ObjectMapper()
+  objectMapper.registerModule(DefaultScalaModule)
 
   def main(args: Array[String]): Unit = {
 
