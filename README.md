@@ -13,6 +13,7 @@ README
 
 ## Json parser
 * circe
+* jackson
 
 ## JDBC
 * ScalikeJDBC
