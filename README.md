@@ -1,6 +1,8 @@
 README
 ---
 
+[![CircleCI](https://circleci.com/gh/keyno63/scala_libs/tree/master.svg?style=svg)](https://circleci.com/gh/keyno63/scala_libs/tree/master)
+
 # Proposal
 ライブラリのお試し実装
 
